@@ -1,3 +1,12 @@
+<?php
+include "koneksi.php";
+
+$query = "SELECT * FROM mahasiswa";
+$data = ambildata($query);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +15,34 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>DATA MAHASISWA</h1>
+    <h1>Data Mahasiswa</h1>
     <br>
-    <table border="1" cellspacing="0" cellpading="5">
+    <table border="1" cellspacing="0" cellpadding="5">
         <thead>
-            <tr>
-            <th>No</th>
-            <th>NIM</th>
-            <th>Nama</th>
-            </tr>
+            <th>no</th>
+            <th>nim</th>
+            <th>nama</th>
+            <th>tgl_lahir</th>
+            <th>no_telp</th>
+            <th>email</th>
+            <th>id_prodi</th>
         </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>E020323099</td>
-            <td>Muhammad Satrio</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>E020323100</td>
-    <td>Cid</td>
-</tr>
-</tbody>
-</table>
+        <tbody>
+            <?php
+            $i=1; 
+            foreach($data as $d) : ?>
+            <tr>
+                <td><?php echo $i++; ?></td>
+                <td><?php echo $d["nim"] ?></td>
+                <td><?php echo $d["nama"] ?></td>
+                <td><?php echo $d["tgl_lahir"] ?></td>
+                <td><?php echo $d["no_telp"] ?></td>
+                <td><?php echo $d["email"] ?></td>
+                <td><?php echo $d["id_prodi"] ?></td>
+            </tr>
+        <?php endforeach; ?>
+
+        </tbody>
+    </table>
 </body>
 </html>
