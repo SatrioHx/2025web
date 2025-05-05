@@ -4,21 +4,24 @@ include "koneksi.php";
 $query = "SELECT * FROM prodi";
 $data = ambildata($query);
 
+
+include "template/header.php";
+include "template/sidebar.php"
 ?>
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prodi</title>
+<div class="row">
+              <div class="col-md-12">
+                <div class="card mb-4">
+                  <div class="card-header"><h3 class="card-title">Data Prodi</h3>
+                </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table class="table table-bordered">
 </head>
 <body>
     <h1>Data Prodi</h1>
-    <br>
-    <table border="1" cellspacing="0" cellpadding="5">
+  
         <thead>
             <th>no</th>
             <th>nama</th>
@@ -35,9 +38,15 @@ $data = ambildata($query);
                 <td><?php echo $d["kaprodi"] ?></td>
                 <td><?php echo $d["jurusan"] ?></td>
             </tr>
-        <?php endforeach; ?>
+                <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
 
-        </tbody>
-    </table>
-</body>
-</html>
+ 
+    
+
+<?php
+include "template/footer.php";
+?>
