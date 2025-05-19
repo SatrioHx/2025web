@@ -12,10 +12,10 @@ $data = mysqli_fetch_assoc($hasil);
 
 if (password_verify($password, $data['password'])) {
    $_SESSION['login'] = true;
-   echo "login berhasil";
+   $_SESSION['nama'] = $data['nama'];
+   $_SESSION['foto'] = $data['foto'];
    header("Location: index.php");
 } else {
-    echo "password salah";
     header("Location: login.html");
 }
 ?>
